@@ -37,6 +37,7 @@ NSString* machineName
 - (Hardware)hardware
 {
     NSString *hardware = [self hardwareString];
+    
     if ([hardware isEqualToString:@"iPhone1,1"])    return IPHONE_2G;
     if ([hardware isEqualToString:@"iPhone1,2"])    return IPHONE_3G;
     if ([hardware isEqualToString:@"iPhone2,1"])    return IPHONE_3GS;
@@ -46,6 +47,10 @@ NSString* machineName
     if ([hardware isEqualToString:@"iPhone4,1"])    return IPHONE_4S;
     if ([hardware isEqualToString:@"iPhone5,1"])    return IPHONE_5;
     if ([hardware isEqualToString:@"iPhone5,2"])    return IPHONE_5_CDMA_GSM;
+    if ([hardware isEqualToString:@"iPhone5,3"])    return IPHONE_5C;
+    if ([hardware isEqualToString:@"iPhone5,4"])    return IPHONE_5C_GLOBAL;
+    if ([hardware isEqualToString:@"iPhone6,1"])    return IPHONE_5S;
+    if ([hardware isEqualToString:@"iPhone6,2"])    return IPHONE_5S_GLOBAL;
     
     if ([hardware isEqualToString:@"iPod1,1"])      return IPOD_TOUCH_1G;
     if ([hardware isEqualToString:@"iPod2,1"])      return IPOD_TOUCH_2G;
@@ -76,7 +81,7 @@ NSString* machineName
 
 - (NSString*)hardwareDescription
 {
-    NSString *hardware = [self hardwareString];
+    NSString *platform = [self hardwareString];
     
     if ([platform isEqualToString:@"iPhone1,1"])    return @"iPhone 2G";
     if ([platform isEqualToString:@"iPhone1,2"])    return @"iPhone 3G";
@@ -114,8 +119,8 @@ NSString* machineName
     if ([platform isEqualToString:@"iPad3,5"])      return @"iPad 4";
     if ([platform isEqualToString:@"iPad3,6"])      return @"iPad 4 (GSM+CDMA)";
     
-    if ([hardware isEqualToString:@"i386"])         return @"iOS Simulator";
-    if ([hardware isEqualToString:@"x86_64"])       return @"iOS Simulator";
+    if ([platform isEqualToString:@"i386"])         return @"iOS Simulator";
+    if ([platform isEqualToString:@"x86_64"])       return @"iOS Simulator";
     
     return @"Unknown Device";
 }
